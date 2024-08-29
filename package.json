@@ -1,0 +1,52 @@
+{
+  "name": "vigas",
+  "version": "1.0.0",
+  "private":true,
+  "homepage": "./",
+  
+  "description": "app para calculo de momento, cisalhamento e armadura em uma viga de seção retangular",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "pack":"electron-builder --dir",
+    "dist":"electron-builder -c.mac.identity=null",
+    "electron:package:win":"yarn build && electron-builder -w -c.extraMetaData.main=build/index.js",
+    "electron:package:mac":"yarn build && electron-builder -m -c.extraMetaData.main=build/index.js",
+    "electron:package:linux":"yarn build && electron-builder -l -c.extraMetaData.main=build/index.js"
+  },
+  "build": {
+    "appId": "www.ferrteix.com.br",
+    "productName":"Dione Vigas",
+    "win": {
+      "icon": "./images/piicon.ico"
+    },
+    "mac": {
+      "icon": "./images/piicon.icns"
+    },
+    "files":[
+      "index.js",      
+      "dist/**/*",
+      "node_modules/**/*",
+      "public/**/*"      
+    ],
+    "directories": {
+      "buildResources": "public"
+    }
+  },
+  "keywords": [],
+  "author": {
+    "name": "Dione Ferreira Teixeira",
+    "email": "jhonimirassol@gmail.com"
+  },
+  "license": "ISC",
+  "dependencies": {    
+    "electron-is-dev": "^2.0.0",
+    "linalg": "^0.3.2",
+    "ndarray-linear-solve": "^3.0.0",
+    "numeric": "^1.2.6"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.13.3"
+  }
+}

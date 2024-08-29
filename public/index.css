@@ -1,0 +1,224 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+
+/* .container{display: none;} */
+.modal-set-viga {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvas {
+    background-color: white;
+    height: 70%;
+}
+
+.modal-set-viga form {
+    width: 300px;
+}
+input{
+    padding:5px;
+    outline: none;    
+}
+.modal-set-viga form input {
+    width: 100%;
+}
+
+#draw-viga {
+    width: 100%;
+    height: 80%;
+    border: 1px solid black;
+}
+
+.bottom-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30%;
+    padding: 10px;
+    border-top:1px solid #4c3cfa;
+    border-radius: 5px;
+}
+
+.wrap-block {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.wrap-change button {
+    margin: 7px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.wrap-flex {
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.wrap-panel-coordinates {
+    padding: 10px;
+}
+.wrap-panel-coordinates label{
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.wrap-panel-coordinates div {
+    margin-bottom: 10px;
+}
+
+.wrap-panel-coordinates div input {
+    width: 300px;
+}
+
+.wrap-top-pannel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#canvas-single-viga {
+    background-color: orange;
+}
+
+.btn-pannel {
+    padding: 7px;
+    background-color: #20109c;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn-pannel:hover {
+    background-color: #0a0342;
+    color: yellowgreen;
+}
+
+.btn-classic {
+    width: auto;    
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 5px;
+}
+.btn-classic:hover{
+    background-color: black;
+    color:white;
+}
+
+.wrap-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.wrap-options label {
+    font-size: 15px;
+    font-weight: bolder;
+    color: rgb(30, 30, 30);
+    margin-bottom:7px;
+}
+.wrap-options select{
+    outline: none;
+}
+
+.force-choose {
+    background-color: red;
+    color: white;
+}
+.wrap-shapes input{
+    padding:5px !important;
+}
+#form-shape {
+    width: 150px;
+    padding: 5px;
+    background-color: rgba(184, 207, 245, 0.5);
+}
+
+.information-panel {
+    width: 300px;
+    padding: 5px;
+    background-color: rgba(184, 207, 245, 0.5);
+}
+
+.form-shape-detail {
+    width: 200px;
+    padding: 5px;
+    background-color: rgba(184, 207, 245, 0.5);
+}
+
+#form-shape input {
+    width: 45%;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+.form-shape-detail input {
+    width: 100%;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+.none {
+    display: none;
+}
+
+.select-op {
+    width: 100%;
+}
+
+.title-min {
+    font-size: 12px;
+}
+
+.det-input {
+    height: 15px;
+}
+
+.wrap-detail {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrap-detail label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.wrap-detail input {
+    width: 80px;
+}
+
+#title-armadura {
+    font-size: 12px;
+}
+
+.main-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Largura da barra de rolagem */
+::-webkit-scrollbar {
+    width: 0px;
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline';">
+
+    <link rel="stylesheet" href="index.css">
+    <title class="title">DIONE VIGAS</title>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="canvas"></canvas>
+        <div id="menu-vigas" class="bottom-menu">
+            <!--choose-->
+            <div class="wrap-change wrap-block">
+                <button id="call-coordinates" class="btn-classic">Coordinates</button>
+                <button id="call-forces" class="btn-classic">Force</button>
+                <button id="call-shapes" class="btn-classic">Reinforcement</button>
+                <button id="call-apoios" class="btn-classic">Support</button>
+                <button id="calc" class="btn-classic">Shear</button>
+                <button id="calc-momento" class="btn-classic">Moment</button>
+            </div>
+
+            <!--apoio-->
+            <div class="wrap-apoios wrap-flex wrap-back">
+                <div>
+                    <button id="createApoio" class="btn-classic">OK</button>
+                </div>
+                <div>
+                    <button id="Back" class="btn-classic back">Back</button>
+                </div>
+                <div class="wrap-options">
+                    <label>Grau do apoio</label>
+                    <select id="grau-apoio">
+                        <option value="free">Livre</option>
+                        <option value="fixed" selected>Fixo</option>
+                        <option value="engaged">Engastado</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--force-->
+            <div class="wrap-force wrap-flex wrap-back">
+                <div>
+                    <button id="force-linear" class="btn-classic btn-force">Linear</button>
+                    <button id="force-pontual" class="btn-classic btn-force">Pontual</button>
+                    <button id="force-linear-inclinada" class="btn-classic btn-force">L.Inclinada</button>
+                    <button id="force-momento" class="btn-classic btn-force">Momento</button>
+                </div>
+                <div>
+                    <label>Force y</label>
+                    <input id="force-y" disabled type="number" />
+                </div>
+                <div>
+                    <label>Force y2</label>
+                    <input id="force-y2" disabled type="number" />
+                </div>
+                <div>
+                    <button id="Back" class="btn-classic back back-force">Back</button>
+                    <button id="createForce" class="btn-classic">OK</button>
+                </div>
+            </div>
+
+            <!--shapes-->
+            <div class="wrap-shapes wrap-flex wrap-back">
+                <div>
+                    <label class="main-label">shape</label>
+                    <select id="choose-shape">
+                        <option selected value="ret-shape">Retangle</option>
+                        <option value="t-shape">T shape</option>
+                        <option value="c-shape">C shape</option>
+                        <option value="i-shape">I shape</option>
+                        <option value="z-shape">Z shape</option>
+                        <option value="box-shape">Box shape</option>
+                        <option value="l-shape">L shape</option>
+                        <option value="manual-shape">Manual Inerc.</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="main-label" >Dimenções</label>
+                    <form id="form-shape">
+                        <div class="wrap-form-shape t-shape none">
+                            <input type="number" id="d" placeholder="d (mm)" />
+                            <input type="number" id="b" placeholder="b (mm)" />
+                            <input type="number" id="tw" placeholder="tf (mm)" />
+                            <input type="number" id="tf" placeholder="tf (mm)" />
+                        </div>
+                        <div class="wrap-form-shape ret-shape ">
+                            <div class="wrap-detail">
+                                <label>Altura (mm)</label>
+                                <input type="number" id="ret-d" value="50" />
+                            </div>
+                            <div class="wrap-detail">
+                                <label>Base (mm)</label>
+                                <input type="number" id="ret-b" value="20" />
+                            </div>
+                        </div>
+                        <div class="wrap-form-shape l-shape none">
+                            <input type="number" id="d" placeholder="d (mm)" />
+                            <input type="number" id="b" placeholder="b (mm)" />
+                            <input type="number" id="t" placeholder="tw (mm)" />
+                        </div>
+                        <div class="wrap-form-shape i-shape none">
+                            <input type="number" id="d" placeholder="d (mm)" />
+                            <input type="number" id="b" placeholder="b (mm)" />
+                            <input type="number" id="tw" placeholder="tw (mm)" />
+                            <input type="number" id="tf" placeholder="tf (mm)" />
+                            <input type="number" id="h" placeholder="h (mm)" />
+                        </div>
+                        <div class="wrap-form-shape c-shape none">
+                            <input type="number" id="d" placeholder="d (mm)" />
+                            <input type="number" id="b" placeholder="b (mm)" />
+                            <input type="number" id="tw" placeholder="tw (mm)" />
+                            <input type="number" id="tf" placeholder="tf (mm)" />
+                            <input type="number" id="h" placeholder="h (mm)" />
+                        </div>
+                        <div class="wrap-form-shape z-shape none">
+                            <input type="number" id="d" placeholder="d (mm)" />
+                            <input type="number" id="b" placeholder="b (mm)" />
+                            <input type="number" id="t" placeholder="t (mm)" />
+                        </div>
+                        <div class="wrap-form-shape box-shape none">
+                            <input type="number" id="d" placeholder="d (mm)" />
+                            <input type="number" id="b" placeholder="b (mm)" />
+                            <input type="number" id="tw" placeholder="tw (mm)" />
+                            <input type="number" id="tf" placeholder="tf (mm)" />
+                        </div>
+                        <div class="wrap-form-shape manual-shape none">
+                            <input type="number" id="manual" placeholder="manual (mm)" />
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <form class="form-shape-detail">
+                        <div class="box-shape ">
+                            <div class="wrap-detail">
+                                <label>Bitola (mm)</label>
+                                <select id="bitola">
+                                    <option value="5">5</option>
+                                    <option value="6.3">6.3</option>
+                                    <option value="8">8</option>
+                                    <option selected value="10">10</option>
+                                    <option value="12.5">12.5</option>
+                                    <option value="16">16</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="32">32</option>
+                                    <option value="40">40</option>
+                                </select>
+                            </div>
+                            <div class="wrap-detail">
+                                <label>Cobrimento (mm)</label>
+                                <input id="cobrimento" value="2.5" min="2.5" type="number" />
+                            </div>
+                            <div class="wrap-detail">
+                                <label>Estribo (mm)</label>
+                                <input id="estribo" value="5" min="5" type="number" />
+                            </div>
+                            <div class="wrap-detail">
+                                <label>CA (mpa)</label>
+                                <input id="ca" value="50" type="number" />
+                            </div>
+                            <div class="wrap-detail">
+                                <label>C</label>
+                                <input id="c" value="25" type="number" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="information-panel" class="information-panel">
+                    <h3 id="title-armadura"></h3>
+                </div>
+                <div>
+                    <button id="Back-shape" class="btn-classic back">Back</button>
+                    <button id="calcular-armadura" class="btn-classic">Calcular</button>
+                </div>
+            </div>
+
+            <!--coordinates-->
+            <div class="wrap-coordinates wrap-flex wrap-back">
+                <div class="wrap-panel-coordinates">
+                    <div>
+                        <label>First x</label>
+                        <input id="first-x" type="number" />
+                    </div>
+                    <div>
+                        <button id="createPoints" class="btn-classic back">Back</button>
+                    </div>
+                </div>
+                <div class="wrap-panel-coordinates">
+                    <div>
+                        <label>Second x</label>
+                        <input id="second-x" type="number" />
+                    </div>
+                    <!-- <div>
+                        <label>Second y</label>
+                        <input id="second-y" type="number" />
+                    </div> -->
+                    <div>
+                        <button id="createViga" class="btn-classic">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script3.js"></script>
+    <!-- <script src="./script1.js"></script> -->
+    <script src="./testes2.js"></script>
+    <!-- <script src="./script.js"></script> -->
+    <!-- <script src="./scriptSingleViga.js"></script> -->
+</body>
+
+</html>

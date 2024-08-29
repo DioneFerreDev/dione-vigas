@@ -1,0 +1,6 @@
+TODO LIST
+
+
+
+1 - fazer os calculos  das verticais no caso 0 e adicionar junto com as reações de momentos em um array
+2 - fazer o sistema de equações para descobrir os Ds.

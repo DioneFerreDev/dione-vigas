@@ -1,0 +1,5 @@
+# dependências do nodejs
+node_modules/
+
+# diretorios de build
+dist/
